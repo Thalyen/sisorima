@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SISORIMA - Sistema de Orientação de Matrícula</title>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body class='<%= controller.controller_name %>'>
+		
+		<header>
+			<%= link_to image_tag("sisorima_logo.png"), "http://localhost:3000"  %>
+			<h1><%= @page_title || "SISORIMA - Sistema de Orientação de Matrícula" %></h1>
+		</header>
+
+		<aside>
+			<nav>
+				<ul>
+					<li>
+						<%= link_to 'Perfil', 'http://localhost:3000/alunos' %>
+					</li>
+					<li>
+						<%= link_to 'Simulações', 'http://localhost:3000' %>
+					</li>
+					<li>
+						<%= link_to 'Cursos', 'http://localhost:3000/cursos' %>
+					</li>
+					<li>
+						<%= link_to 'Logout', 'http://localhost:3000/sessions/destroy' %>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+
+		<section class="principal">
+			<%= yield %>
+		</section>
+
+		<footer>
+			<p>
+				<strong>&copy;2014 - SISORIMA - Todos os direitos reservados</strong>
+			</p>
+		</footer>
+	</body>
+</html>

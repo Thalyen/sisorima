@@ -1,0 +1,34 @@
+<%= form_for(@aluno) do |f| %>
+  <% if @aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+
+      <ul>
+      <% @aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome, placeholder: 'Nickname' %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, placeholder: 'xxxx@xxxx.com' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label 'Senha:' %><br>
+    <%= f.password_field :password, placeholder: 'letras e números' %>
+  </div>
+  <div>
+    <%= f.label 'Senha confirmação:' %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>

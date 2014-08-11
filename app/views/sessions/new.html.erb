@@ -1,0 +1,27 @@
+<div class="logar">
+	<% if flash[:alert] %>
+	<p id="notice">
+		<%= flash[:alert] %>
+	</p>
+	<% end %>
+
+	<%= form_tag do %>
+	<fieldset>
+		<legend>
+			<h2>Login</h2>
+		</legend>
+		<div>
+			<%= label_tag :email, 'E-mail:' %>
+			<%= text_field_tag :email, params[:email] %>
+		
+			<%= label_tag :password, 'Senha:' %>
+			<%= password_field_tag :password, params[:password] %>
+		</div>
+		<div>
+			<%= submit_tag "Entrar" %>
+		</div>
+	</fieldset>
+	<% end %>
+
+	<%= link_to 'Cadastre-se', new_aluno_path %>
+</div>
